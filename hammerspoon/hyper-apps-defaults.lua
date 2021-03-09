@@ -6,9 +6,10 @@
 return {
   { 'm', 'Spotify' },
   { 'b', 'Google Chrome' },
-  { 'c', 'Slack' },
+  { 'c', 'Workplace Chat' },
   { 'f', 'Finder' },
   { 'e', 'Microsoft Outlook' },
   { 't', 'Alacritty' },
   { 'n', 'Notion' },
+  { 'v', 'zoom.us' }
 }
