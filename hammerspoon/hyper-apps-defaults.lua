@@ -4,11 +4,12 @@
 -- this file, save it as `hyper-apps.lua`, and edit the table below to configure
 -- your preferred shortcuts.
 return {
-  { 'm', 'Spotify' },
+  { 'a', 'Spotify' }, -- a is for audio :)
   { 'b', 'Google Chrome' },
   { 'c', 'Workplace Chat' },
   { 'f', 'Finder' },
-  { 'e', 'Microsoft Outlook' },
+  { 'e', 'VS Code @ FB' },
+  { 'm', 'Microsoft Outlook' },
   { 't', 'Alacritty' },
   { 'n', 'Notion' },
   { 'v', 'zoom.us' }
