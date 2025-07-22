@@ -1,7 +1,7 @@
-local drawing = require 'hs.drawing'
-local geometry = require 'hs.geometry'
-local screen = require 'hs.screen'
-local styledtext = require 'hs.styledtext'
+local drawing = require('hs.drawing')
+local geometry = require('hs.geometry')
+local screen = require('hs.screen')
+local styledtext = require('hs.styledtext')
 
 local statusmessage = {}
 statusmessage.new = function(messageText)
@@ -10,9 +10,11 @@ statusmessage.new = function(messageText)
 
     local styledTextAttributes = {
       font = { name = 'Monaco', size = 24 },
+      color = { white = 1, alpha = 0.8 },
     }
 
-    local styledText = styledtext.new('🔨 ' .. messageText, styledTextAttributes)
+    local styledText =
+      styledtext.new('🔨 ' .. messageText, styledTextAttributes)
 
     local styledTextSize = drawing.getTextDrawingSize(styledText)
     local textRect = {
@@ -23,16 +25,14 @@ statusmessage.new = function(messageText)
     }
     local text = drawing.text(textRect, styledText):setAlpha(0.7)
 
-    local background = drawing.rectangle(
-      {
-        x = frame.w - styledTextSize.w - 45,
-        y = frame.h - styledTextSize.h - 3,
-        w = styledTextSize.w + 15,
-        h = styledTextSize.h + 6
-      }
-    )
+    local background = drawing.rectangle({
+      x = frame.w - styledTextSize.w - 45,
+      y = frame.h - styledTextSize.h - 3,
+      w = styledTextSize.w + 15,
+      h = styledTextSize.h + 6,
+    })
     background:setRoundedRectRadii(10, 10)
-    background:setFillColor({ red = 0, green = 0, blue = 0, alpha=0.6 })
+    background:setFillColor({ red = 0, green = 0, blue = 0, alpha = 0.6 })
 
     return background, text
   end
@@ -59,8 +59,12 @@ statusmessage.new = function(messageText)
     notify = function(self, seconds)
       local seconds = seconds or 1
       self:show()
-      hs.timer.delayed.new(seconds, function() self:hide() end):start()
-    end
+      hs.timer.delayed
+        .new(seconds, function()
+          self:hide()
+        end)
+        :start()
+    end,
   }
 end
 
