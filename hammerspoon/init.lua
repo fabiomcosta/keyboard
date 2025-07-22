@@ -2,7 +2,7 @@ require('hs.ipc')
 
 local log = hs.logger.new('init.lua', 'debug')
 
-local homebrewPath = os.getenv('HOME') .. '/homebreww'
+local homebrewPath = os.getenv('HOME') .. '/homebrew'
 local homebrewPathStats = hs.fs.attributes(homebrewPath)
 
 if homebrewPathStats ~= nil and homebrewPathStats.mode == 'directory' then
@@ -12,7 +12,7 @@ else
 end
 
 -- Use Control+` to reload Hammerspoon config
-hs.hotkey.bind({'ctrl'}, '`', nil, function()
+hs.hotkey.bind({ 'ctrl' }, '`', nil, function()
   hs.reload()
 end)
 
@@ -49,4 +49,6 @@ require('keyboard.hyper')
 -- require('keyboard.panes')
 require('keyboard.windows')
 
-hs.notify.new({title='Hammerspoon', informativeText='Ready to rock 🤘'}):send()
+hs.notify
+  .new({ title = 'Hammerspoon', informativeText = 'Ready to rock 🤘' })
+  :send()
